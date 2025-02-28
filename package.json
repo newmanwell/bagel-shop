@@ -28,5 +28,17 @@
     "globals": "^15.15.0",
     "nodemon": "^3.1.9",
     "vite": "^6.2.0"
-  }
+  },
+  "description": "",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bagel-shop/bagel-shop.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bagel-shop/bagel-shop/issues"
+  },
+  "homepage": "https://github.com/bagel-shop/bagel-shop#readme"
 }
