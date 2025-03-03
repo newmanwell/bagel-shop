@@ -4,7 +4,8 @@ const createBagel = async(bagelName, bagelDescription, bagelImage, bagelPrice) =
   try {
     const { rows } = await client.query(`
     INSERT INTO bagels (name, description, image, price)
-    VALUES ( '${bagelName}', '${bagelDescription}', '${bagelImage}', '${bagelPrice}');
+    VALUES ( '${bagelName}', '${bagelDescription}', '${bagelImage}', '${bagelPrice}')
+    RETURNING *;
       `)
     const product = rows
     return product;
@@ -26,6 +27,7 @@ const fetchAllBagels = async() => {
   }
 };
 
+
 const fetchBagelDetails = async(bagel_id) => {
   try {
     const { rows: retrievedBagelDetails } = await client.query(`
@@ -42,4 +44,5 @@ const fetchBagelDetails = async(bagel_id) => {
   createBagel,
   fetchAllBagels,
   fetchBagelDetails
+
 }
