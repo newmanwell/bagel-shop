@@ -5,6 +5,9 @@ const app = express();
 
 app.use(express.static('dist'));
 
+const client = require('./db/client.cjs');
+client.connect();
+
 // get all bagel info
 app.get('/api/bagels', async(req, res, next) => {
   try{
@@ -24,4 +27,10 @@ app.get('/api/bagels/:bagel_id', async(req, res, next) => {
   } catch(err) {
     next(err);
   }
+});
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Listening on PORT ${PORT}`);
 });
