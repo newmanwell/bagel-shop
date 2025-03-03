@@ -12,8 +12,8 @@ client.connect();
 // get all bagel info
 app.get('/api/bagels', async(req, res, next) => {
   try{
-    const allBaegls = await fetchAllBagels();
-    res.send(allBaegls);
+    const allBagels = await fetchAllBagels();
+    res.send(allBagels);
   } catch(err) {
     next(err);
   }
