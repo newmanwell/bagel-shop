@@ -17,7 +17,7 @@ const AllBagels = () => {
   return (
     allBagels.map((singleBagel) => {
       return ( 
-        <Link to={`/api/bagels/${singleBagel.id}`} key={ singleBagel.id } > 
+        <Link to={`/details/${singleBagel.id}`} key={ singleBagel.id } > 
           <h3>{ singleBagel.name }</h3>
           <img src={ singleBagel.image } alt="Yummy Bagel" />
         </Link>
