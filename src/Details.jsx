@@ -14,7 +14,6 @@ const GetOneBagel = () => {
     }
     oneBagelDetails();
   }, []);  
-  console.log(singleBagel);
 
   return (
     <> 
