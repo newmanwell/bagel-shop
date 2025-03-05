@@ -12,7 +12,7 @@ const AllBagels = () => {
     }
     getAllBagels();
   }, []);
-  console.log(allBagels);
+  
 
   return (
     allBagels.map((singleBagel) => {
