@@ -5,8 +5,11 @@ const NavBar = () => {
 
   return (
     <nav>
-      <Link to='/'>Homepage</Link>
-      <Link to='/login'>Login</Link>
+      <h1> The Bagel Shop</h1>
+      <div>
+        <Link to='/'>Home</Link>
+        <Link to='/login'>Login</Link>
+      </div>
     </nav>
 
 

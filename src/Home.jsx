@@ -1,29 +1,22 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const AllBagels = () => {
-  const [ allBagels, setAllBagels ] = useState([]);
-
-  useEffect(() => {
-    const getAllBagels = async() => {
-      const response = await fetch('/api/bagels');
-      const allTheBagels = await response.json();
-      setAllBagels(allTheBagels);
-    }
-    getAllBagels();
-  }, []);
-  
-
+const Home = () => {
   return (
-    allBagels.map((singleBagel) => {
-      return ( 
-        <Link to={`/details/${singleBagel.id}`} key={ singleBagel.id } > 
-          <h3>{ singleBagel.name }</h3>
-          <img src={ singleBagel.image } alt="Yummy Bagel" />
-        </Link>
-      )
-    })
+    <>
+    <main>
+      <div className='story-container'>
+        <h2>Happiness is a warm bagel</h2>
+        <h3>Our Story</h3>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipiscing elit. 
+            Quisque faucibus ex sapien vitae pellentesque sem placerat. 
+            In id cursus mi pretium tellus duis convallis.
+        </p>
+      </div>
+      <Link to={`/bagels`}>Our Bagels</Link>
+    </main>
+    </>
   )
 }
 
-export default AllBagels;
+export default Home;
