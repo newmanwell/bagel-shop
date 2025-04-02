@@ -1,8 +1,85 @@
 body {
   background-color: lightgray;
+  margin: 0;
+}
+
+h1 {
+  font-size: 46px;
+  color: lightgray;
+}
+
+a {
+  font-size: 26px;
+  text-decoration: none;
+  color: bisque;
+  padding-top: 15px;
+}
+
+nav a {
+  padding-right: 15px;
+}
+
+nav a+a::before { 
+  content: '|';
+  padding-left: 0px;
+  padding-right: 20px;
+}
+
+a:hover {
+  color: lightgray;
+}
+
+nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  background-image: url('./images/bagels-on-wood.jpg');
+  height: 752px;
+  background-size: cover;
+}
+
+/* Home Page styling */
+
+.story-container {
+  display: flex;
+  flex-direction: column;
+  color: lightgrey;
+  width: 50%;
+  padding: 25px;
+  margin: 25px;
+  background-color: hsla(0, 0%, 0%, .3);
+}
+
+.story-container p {
+  text-align: center;
+  width: 50%;
+  padding-left: 25%;
+}
+
+h2 {
+  font-size: 35px;
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+main a {
+  width: 50%;
+  margin: 25px;
+  text-align: center;
+  font-size: 30px;
 }
 
 img {
   height: 200px;
   width: 200px;
+  border-radius: 50%;
 }

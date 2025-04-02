@@ -1,4 +1,5 @@
-import AllBagels from "./Home.jsx";
+import AllBagels from "./Bagels.jsx";
+import Home from "./Home.jsx";
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './Navbar.jsx';
 import GetOneBagel from "./Details.jsx";
@@ -7,12 +8,11 @@ const App = () => {
 
   return (
     <>
-    <NavBar />
-
-      <h1>Bagel Shop</h1>
+      <NavBar />
       <div>
         <Routes>
-          <Route path="/" element={<AllBagels />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/bagels" element={<AllBagels />} />
           <Route path="/details/:id" element={<GetOneBagel />} />
         </Routes>
       </div>
