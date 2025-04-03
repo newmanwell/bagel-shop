@@ -1,5 +1,6 @@
 import AllBagels from "./Bagels.jsx";
 import Home from "./Home.jsx";
+import Footer from "./Footer.jsx";
 import { Routes, Route } from 'react-router-dom';
 import NavBar from './Navbar.jsx';
 import GetOneBagel from "./Details.jsx";
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/details/:id" element={<GetOneBagel />} />
         </Routes>
       </div>
+      <Footer />
     </>
   )
 }

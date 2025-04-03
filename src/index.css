@@ -1,5 +1,4 @@
 body {
-  background-color: lightgray;
   margin: 0;
 }
 
@@ -76,6 +75,20 @@ main a {
   margin: 25px;
   text-align: center;
   font-size: 30px;
+}
+
+/* Footer */
+
+footer {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 120px;
+}
+
+footer h3 {
+  color: lightgray;
 }
 
 img {
