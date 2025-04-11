@@ -17,12 +17,14 @@ const GetOneBagel = () => {
 
   return (
     <> 
-        <section>
+      <div className="one-bagel">
+        <section className="one-bagel-main">
           <h2>{ singleBagel.name }</h2>
           <img src={ singleBagel.image } alt="A tasty Bagel"/>
           <p>{ singleBagel.description }</p>
           <h3>Price: ${ singleBagel.price / 100 }</h3>
         </section>
+      </div>
     </>
   )
 }
