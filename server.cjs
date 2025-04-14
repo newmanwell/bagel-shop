@@ -47,11 +47,11 @@ app.post('/api/register',async(req, res, next) => {
 
 
 // login
-app.post('/api/login',async(req, res, next) => {
-  const{username, password} = req.body;
+app.post('/api/login', async(req, res, next) => {
+  const {username, password} = req.body;
   try {
     const userToken = await logInUser(username, password);
-    res.send({userToken})
+    res.send({token: userToken, username: username})
   } catch (err) {
     res.send({message: err.message});
   }
