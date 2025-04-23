@@ -39,19 +39,21 @@ const Login = () => {
 
   return (
     <>
-      <h2>Login</h2>
-      <form onSubmit={loggingIn}>
-        <input 
-          placeholder="username" 
-          onChange={(event) => {setInputUsername(event.target.value)}}
-        />
-        <input 
-          placeholder="password" 
-          onChange={(event) => {setInputPassword(event.target.value)}}
-        />
-        <button>Login</button>
-        {badLogin ? <p>{badLogin}</p> : null}
-      </form>
+      <div className="login-page">
+          <form onSubmit={loggingIn} className="login-form">
+            <h2>Login</h2>
+            <input 
+              placeholder="username" 
+              onChange={(event) => {setInputUsername(event.target.value)}}
+            />
+            <input 
+              placeholder="password" 
+              onChange={(event) => {setInputPassword(event.target.value)}}
+            />
+            <button>Login</button>
+            {badLogin ? <p>{badLogin}</p> : null}
+          </form>
+      </div>
     </>
 
   )

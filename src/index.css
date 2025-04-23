@@ -128,7 +128,58 @@ main a {
 }
 
 .one-bagel-main h2, .one-bagel-main h3, .one-bagel-main p {
-  color: bisque;;
+  color: bisque;
+}
+
+/* Login Page */
+
+.login-page {
+  background-image: url('./images/bagels-on-wood.jpg');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 750px;
+}
+
+.login-page h2 {
+  color: lightgray;
+  font-size: 2.5rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 325px;
+  background-color: hsla(0, 0%, 0%, .5);
+  border: 1px lightgray solid;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.login-form input {
+  height: 30px;
+  width: 80%;
+  margin-bottom: 10px;
+  background-color: lightgray;
+}
+
+.login-form button {
+  height: 30px;
+  width: 40%;
+  background-color: bisque;
+  margin-bottom: 33px;
+}
+
+.login-form button:hover {
+  background-color: rgb(172, 153, 130);
+}
+
+.login-form p {
+  color: red;
 }
 
 /* Footer */
