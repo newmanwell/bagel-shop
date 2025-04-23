@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "./Navbar.jsx";
 
-const Login = () => {
+const Login = ({ setToken }) => {
   const [inputUsername, setInputUsername] = useState('');
   const [inputPassword, setInputPassword] = useState('');
   const [badLogin, setBadLogin] = useState(null);
@@ -28,6 +29,7 @@ const Login = () => {
       if (userLogin.message === 'Bad Credentials'|| userLogin.token.message === 'Bad Token') {
         setBadLogin('Invalid login attempt')
       } else {
+        setToken(userLogin.token)
         localStorage.setItem('token', userLogin.token);
         localStorage.setItem('username', userLogin.username);
         navigate('/');
@@ -48,6 +50,7 @@ const Login = () => {
             />
             <input 
               placeholder="password" 
+              type="password"
               onChange={(event) => {setInputPassword(event.target.value)}}
             />
             <button>Login</button>
