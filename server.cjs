@@ -4,6 +4,7 @@ const{logInUser, registerUser} = require('./db/users.cjs');
 const express = require('express');
 const app = express();
 app.use(express.json()); 
+const path = require('path');
 
 app.use(express.static('dist')); 
 
@@ -55,6 +56,11 @@ app.post('/api/login', async(req, res, next) => {
   } catch (err) {
     res.send({message: err.message});
   }
+});
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, `dist`, 'index.html'));
 });
 
 
