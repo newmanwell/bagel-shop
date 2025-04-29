@@ -17,7 +17,10 @@ const NavBar = ({ token, setToken }) => {
         <Link to='/'>Home</Link>
         {
           !token ?
-            <Link to='/login'>Login</Link>
+            <>
+              <Link to='/login'>Login</Link>
+              <Link to='/register'>Register</Link>
+            </>
           :
             <Link onClick={signOut}>Logout</Link>
         }
