@@ -20,7 +20,7 @@ const Register = () => {
   });
 
   const validatePasswordsMatch = useEffect(() => {
-    if (newPassword !== newPasswordVerify) {
+    if (newPassword !== newPasswordVerify || !newPassword) {
       setPasswordsMatch('👎');
     } else {
       setPasswordsMatch('🥯');
