@@ -11,29 +11,29 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const validateUsernameLength = useEffect(() => {
-      if (newUsername.length >= 6) {
+  const validateUsernameLength = (updatedUn) => {
+      if (updatedUn.length >= 6) {
         setSixCharacters('🥯');
       } else {
         setSixCharacters('👎');
       }
-  });
+  };
 
-  const validatePasswordsMatch = useEffect(() => {
-    if (newPassword !== newPasswordVerify || !newPassword) {
+  const validatePasswordsMatch = (upDatedPwVfy) => {
+    if (newPassword !== upDatedPwVfy || !newPassword) {
       setPasswordsMatch('👎');
     } else {
       setPasswordsMatch('🥯');
     }
-  });
+  };
 
-  const validatePasswordLength = useEffect(() => {
-    if (newPassword.length >= 8 && newPasswordVerify.length >= 8) {
+  const validatePasswordLength = (upDatedPwVfy) => {
+    if (newPassword.length >= 8 && upDatedPwVfy.length >= 8) {
       setEightCharacters('🥯');
     } else {
       setEightCharacters('👎');
     }
-  });
+  };
 
   const addNewUser = async(event) => {
     event.preventDefault()
@@ -69,8 +69,9 @@ const Register = () => {
             required
             value={newUsername}
             onChange={(event) => { 
-              setNewUsername(event.target.value);
-              validateUsernameLength;
+              const updatedUn = event.target.value;
+              setNewUsername(updatedUn);
+              validateUsernameLength(updatedUn);
             }}
           />
           <input 
@@ -80,9 +81,10 @@ const Register = () => {
             required
             value={newPassword}
             onChange={(event) => { 
-              setNewPassword(event.target.value);
-              validatePasswordLength;
-              validatePasswordsMatch;
+              const upDatedPw = event.target.value;
+              setNewPassword(upDatedPw);
+              validatePasswordLength();
+              validatePasswordsMatch();
             }}
           />
           <input 
@@ -92,9 +94,10 @@ const Register = () => {
             required
             value={newPasswordVerify}
             onChange={(event) => { 
-              setNewPasswordVerify(event.target.value);
-              validatePasswordLength;
-              validatePasswordsMatch;
+              const upDatedPwVfy = event.target.value;
+              setNewPasswordVerify(upDatedPwVfy);
+              validatePasswordLength(upDatedPwVfy);
+              validatePasswordsMatch(upDatedPwVfy);
             }}
           />
           <button type="submit">Create Account</button>
