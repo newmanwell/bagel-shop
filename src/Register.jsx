@@ -59,48 +59,50 @@ const Register = () => {
 
   return (
     <>
-      <h2>Register an account</h2>
-      <form onSubmit={addNewUser}>
-        <input
-          type="test"
-          placeholder="Username"
-          minlength="6"
-          required
-          value={newUsername}
-          onChange={(event) => { 
-            setNewUsername(event.target.value);
-            validateUsernameLength;
-          }}
-        />
-        <input 
-          type="password"
-          placeholder="Enter Password"
-          minLength="8"
-          required
-          value={newPassword}
-          onChange={(event) => { 
-            setNewPassword(event.target.value);
-            validatePasswordLength;
-            validatePasswordsMatch;
-          }}
-        />
-        <input 
-          type="password"
-          placeholder="Verify Password"
-          minLength="8"
-          required
-          value={newPasswordVerify}
-          onChange={(event) => { 
-            setNewPasswordVerify(event.target.value);
-            validatePasswordLength;
-            validatePasswordsMatch;
-          }}
-        />
-        <button type="submit">Create Account</button>
-        <h3>Username At Least 6 Characters: {sixCharacters}</h3>
-        <h3>Passwords Match: {passwordsMatch}</h3>
-        <h3>Password At Least 8 Characters: {eightCharacters}</h3>
-      </form>
+      <div className="register-page">
+        <form onSubmit={addNewUser} className="register-form">
+        <h2>Register an account</h2>
+          <input
+            type="test"
+            placeholder="Username"
+            minlength="6"
+            required
+            value={newUsername}
+            onChange={(event) => { 
+              setNewUsername(event.target.value);
+              validateUsernameLength;
+            }}
+          />
+          <input 
+            type="password"
+            placeholder="Enter Password"
+            minLength="8"
+            required
+            value={newPassword}
+            onChange={(event) => { 
+              setNewPassword(event.target.value);
+              validatePasswordLength;
+              validatePasswordsMatch;
+            }}
+          />
+          <input 
+            type="password"
+            placeholder="Verify Password"
+            minLength="8"
+            required
+            value={newPasswordVerify}
+            onChange={(event) => { 
+              setNewPasswordVerify(event.target.value);
+              validatePasswordLength;
+              validatePasswordsMatch;
+            }}
+          />
+          <button type="submit">Create Account</button>
+          <h3>Username 6 or more characters: {sixCharacters}</h3>
+          <h3>Passwords Match: {passwordsMatch}</h3>
+          <h3>Password 8 or more characters: {eightCharacters}</h3>
+        </form>
+      </div>
     </>
   )
 }
