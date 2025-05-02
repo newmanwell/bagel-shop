@@ -11,29 +11,29 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  const validateUsernameLength = useEffect(() => {
-      if (newUsername.length >= 6) {
+  const validateUsernameLength = (updatedUn) => {
+      if (updatedUn.length >= 6) {
         setSixCharacters('🥯');
       } else {
         setSixCharacters('👎');
       }
-  });
+  };
 
-  const validatePasswordsMatch = useEffect(() => {
-    if (newPassword !== newPasswordVerify || !newPassword) {
+  const validatePasswordsMatch = (upDatedPwVfy) => {
+    if (newPassword !== upDatedPwVfy || !newPassword) {
       setPasswordsMatch('👎');
     } else {
       setPasswordsMatch('🥯');
     }
-  });
+  };
 
-  const validatePasswordLength = useEffect(() => {
-    if (newPassword.length >= 8 && newPasswordVerify.length >= 8) {
+  const validatePasswordLength = (upDatedPwVfy) => {
+    if (newPassword.length >= 8 && upDatedPwVfy.length >= 8) {
       setEightCharacters('🥯');
     } else {
       setEightCharacters('👎');
     }
-  });
+  };
 
   const addNewUser = async(event) => {
     event.preventDefault()
@@ -59,48 +59,53 @@ const Register = () => {
 
   return (
     <>
-      <h2>Register an account</h2>
-      <form onSubmit={addNewUser}>
-        <input
-          type="test"
-          placeholder="Username"
-          minlength="6"
-          required
-          value={newUsername}
-          onChange={(event) => { 
-            setNewUsername(event.target.value);
-            validateUsernameLength;
-          }}
-        />
-        <input 
-          type="password"
-          placeholder="Enter Password"
-          minLength="8"
-          required
-          value={newPassword}
-          onChange={(event) => { 
-            setNewPassword(event.target.value);
-            validatePasswordLength;
-            validatePasswordsMatch;
-          }}
-        />
-        <input 
-          type="password"
-          placeholder="Verify Password"
-          minLength="8"
-          required
-          value={newPasswordVerify}
-          onChange={(event) => { 
-            setNewPasswordVerify(event.target.value);
-            validatePasswordLength;
-            validatePasswordsMatch;
-          }}
-        />
-        <button type="submit">Create Account</button>
-        <h3>Username At Least 6 Characters: {sixCharacters}</h3>
-        <h3>Passwords Match: {passwordsMatch}</h3>
-        <h3>Password At Least 8 Characters: {eightCharacters}</h3>
-      </form>
+      <div className="register-page">
+        <form onSubmit={addNewUser} className="register-form">
+        <h2>Register an account</h2>
+          <input
+            type="test"
+            placeholder="Username"
+            minlength="6"
+            required
+            value={newUsername}
+            onChange={(event) => { 
+              const updatedUn = event.target.value;
+              setNewUsername(updatedUn);
+              validateUsernameLength(updatedUn);
+            }}
+          />
+          <input 
+            type="password"
+            placeholder="Enter Password"
+            minLength="8"
+            required
+            value={newPassword}
+            onChange={(event) => { 
+              const upDatedPw = event.target.value;
+              setNewPassword(upDatedPw);
+              validatePasswordLength();
+              validatePasswordsMatch();
+            }}
+          />
+          <input 
+            type="password"
+            placeholder="Verify Password"
+            minLength="8"
+            required
+            value={newPasswordVerify}
+            onChange={(event) => { 
+              const upDatedPwVfy = event.target.value;
+              setNewPasswordVerify(upDatedPwVfy);
+              validatePasswordLength(upDatedPwVfy);
+              validatePasswordsMatch(upDatedPwVfy);
+            }}
+          />
+          <button type="submit">Create Account</button>
+          <h3>Username 6 or more characters: {sixCharacters}</h3>
+          <h3>Passwords Match: {passwordsMatch}</h3>
+          <h3>Password 8 or more characters: {eightCharacters}</h3>
+        </form>
+      </div>
     </>
   )
 }
