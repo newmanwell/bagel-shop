@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import NavBar from "./Navbar.jsx";
 
 const Login = ({ setToken }) => {
-  const [inputUsername, setInputUsername] = useState('');
-  const [inputPassword, setInputPassword] = useState('');
+  const [formData, setFormData] = useState({
+    inputUsername: '',
+    inputPassword: ''
+  });
   const [badLogin, setBadLogin] = useState(null);
 
   const navigate = useNavigate();
@@ -19,8 +20,8 @@ const Login = ({ setToken }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          username: inputUsername,
-          password: inputPassword
+          username: formData.inputUsername,
+          password: formData.inputPassword
         })
       });
       const userLogin = await response.json();
@@ -46,12 +47,12 @@ const Login = ({ setToken }) => {
             <h2>Login</h2>
             <input 
               placeholder="username" 
-              onChange={(event) => {setInputUsername(event.target.value)}}
+              onChange={(event) => {setFormData.inputUsername(event.target.value)}}
             />
             <input 
               placeholder="password" 
               type="password"
-              onChange={(event) => {setInputPassword(event.target.value)}}
+              onChange={(event) => {setFormData.inputPassword(event.target.value)}}
             />
             <button>Login</button>
             {badLogin ? <p>{badLogin}</p> : null}
