@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 
 const Register = () => {
-  const [newUsername, setNewUsername] = useState('');
-  const [newPassword, setNewPassword] = useState('');
-  const [newPasswordVerify, setNewPasswordVerify] = useState('');
+  const [formData, setFormData] = useState({
+    newUsername: '',
+    newPassword: '',
+    newPasswordVerify: ''
+  })
   const [sixCharacters, setSixCharacters] = useState('👎');
   const [passwordsMatch, setPasswordsMatch] = useState('👎');
   const [eightCharacters, setEightCharacters] = useState('👎');
@@ -20,7 +22,7 @@ const Register = () => {
   };
 
   const validatePasswordsMatch = (upDatedPwVfy) => {
-    if (newPassword !== upDatedPwVfy || !newPassword) {
+    if (formData.newPassword !== upDatedPwVfy || !formData.newPassword) {
       setPasswordsMatch('👎');
     } else {
       setPasswordsMatch('🥯');
@@ -28,7 +30,7 @@ const Register = () => {
   };
 
   const validatePasswordLength = (upDatedPwVfy) => {
-    if (newPassword.length >= 8 && upDatedPwVfy.length >= 8) {
+    if (formData.newPassword.length >= 8 && upDatedPwVfy.length >= 8) {
       setEightCharacters('🥯');
     } else {
       setEightCharacters('👎');
@@ -39,15 +41,15 @@ const Register = () => {
     event.preventDefault()
 
       try {
-        if (newPassword === newPasswordVerify) {
+        if (formData.newPassword === formData.newPasswordVerify) {
           const response = await fetch('/api/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              username: newUsername,
-              password: newPassword
+              username: formData.newUsername,
+              password: formData.newPassword
             })
           });
           navigate('/login');
@@ -70,7 +72,7 @@ const Register = () => {
             value={newUsername}
             onChange={(event) => { 
               const updatedUn = event.target.value;
-              setNewUsername(updatedUn);
+              setFormData.newUsername(updatedUn);
               validateUsernameLength(updatedUn);
             }}
           />
@@ -82,9 +84,7 @@ const Register = () => {
             value={newPassword}
             onChange={(event) => { 
               const upDatedPw = event.target.value;
-              setNewPassword(upDatedPw);
-              validatePasswordLength();
-              validatePasswordsMatch();
+              setFormData.newPassword(upDatedPw);
             }}
           />
           <input 
@@ -95,7 +95,7 @@ const Register = () => {
             value={newPasswordVerify}
             onChange={(event) => { 
               const upDatedPwVfy = event.target.value;
-              setNewPasswordVerify(upDatedPwVfy);
+              setFormData.newPasswordVerify(upDatedPwVfy);
               validatePasswordLength(upDatedPwVfy);
               validatePasswordsMatch(upDatedPwVfy);
             }}
