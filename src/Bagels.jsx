@@ -25,7 +25,7 @@ const AllBagels = () => {
   return (
     <div className="all-bagels">
       <h2>Current Stock</h2>
-      <form>
+      <form className="search-bar">
         <input placeholder="search bagels" onChange={handleFilter}/>
       </form>
       <section className="all-bagles-main">
