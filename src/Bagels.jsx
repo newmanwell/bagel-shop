@@ -18,7 +18,7 @@ const AllBagels = () => {
 
   const handleFilter = (event) => {
     const bagelSearch = event.target.value;
-    const searchForBagel = allBagels.filter(bagel => bagel.name.includes(bagelSearch))
+    const searchForBagel = allBagels.filter(bagel => bagel.name.toLowerCase().includes(bagelSearch.toLowerCase()))
     setFilteredBagels(searchForBagel);
   }
 
@@ -27,18 +27,27 @@ const AllBagels = () => {
       <h2>Current Stock</h2>
       <form>
         <input placeholder="search bagels" onChange={handleFilter}/>
-        <button>Search</button>
       </form>
       <section className="all-bagles-main">
       {
-      allBagels.map((singleBagel) => {
-          return (
-              <Link to={`/details/${singleBagel.id}`} key={ singleBagel.id } > 
+        filteredBagels.length === 0 ?
+          allBagels.map((singleBagel) => {
+              return (
+                  <Link to={`/details/${singleBagel.id}`} key={ singleBagel.id } > 
+                    <h3>{ singleBagel.name }</h3>
+                    <img src={ singleBagel.image } alt="Yummy Bagel" />
+                  </Link>
+              )
+            }) 
+          :
+          filteredBagels.map((singleBagel) => {
+            return (
+              <Link to={`/details/${singleBagel.id}`} key={singleBagel.id} >
                 <h3>{ singleBagel.name }</h3>
-                <img src={ singleBagel.image } alt="Yummy Bagel" />
+                <img src={ singleBagel.image } alt="Ymmy Bagel" />
               </Link>
-          )
-        })
+            )
+          })
         }
       </section>
     </div>
