@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router";
 
 const AllBagels = () => {
-  const [ allBagels, setAllBagels ] = useState([]);
+  const [allBagels, setAllBagels] = useState([]);
+  const [filteredBagels, setFilteredBagels] = useState([]);
 
   useEffect(() => {
     const getAllBagels = async() => {
@@ -12,11 +13,22 @@ const AllBagels = () => {
     }
     getAllBagels();
   }, []);
-  
+  console.log(allBagels);
+  console.log(filteredBagels);
+
+  const handleFilter = (event) => {
+    const bagelSearch = event.target.value;
+    const searchForBagel = allBagels.filter(bagel => bagel.name.includes(bagelSearch))
+    setFilteredBagels(searchForBagel);
+  }
 
   return (
     <div className="all-bagels">
       <h2>Current Stock</h2>
+      <form>
+        <input placeholder="search bagels" onChange={handleFilter}/>
+        <button>Search</button>
+      </form>
       <section className="all-bagles-main">
       {
       allBagels.map((singleBagel) => {
