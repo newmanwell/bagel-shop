@@ -69,7 +69,7 @@ const Register = () => {
             placeholder="Username"
             minlength="6"
             required
-            value={newUsername}
+            value={formData.newUsername}
             onChange={(event) => { 
               const updatedUn = event.target.value;
               setFormData.newUsername(updatedUn);
@@ -81,7 +81,7 @@ const Register = () => {
             placeholder="Enter Password"
             minLength="8"
             required
-            value={newPassword}
+            value={formData.newPassword}
             onChange={(event) => { 
               const upDatedPw = event.target.value;
               setFormData.newPassword(upDatedPw);
@@ -92,7 +92,7 @@ const Register = () => {
             placeholder="Verify Password"
             minLength="8"
             required
-            value={newPasswordVerify}
+            value={formData.newPasswordVerify}
             onChange={(event) => { 
               const upDatedPwVfy = event.target.value;
               setFormData.newPasswordVerify(upDatedPwVfy);
