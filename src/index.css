@@ -105,6 +105,18 @@ main a {
   border-radius: 5px;
 }
 
+.search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input {
+  height: 30px;
+  width: 40%;
+  margin-bottom: 10px;
+  background-color: lightgray;
+}
+
 /* Single Bagel */
 
 .one-bagel {
