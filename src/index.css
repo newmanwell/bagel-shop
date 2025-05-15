@@ -240,6 +240,44 @@ main a {
   color: lightgray;
 }
 
+/* Shopping Cart */
+
+.cart-container {
+  position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #00000095;
+	z-index: 10;
+}
+
+.items-container {
+  width: 60%;
+	height: 90%;
+	margin: 2rem auto;
+	background-color: #eee;
+	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.items-container h2 {
+  color: rgb(109, 108, 108);
+}
+
+.items-container button {
+  border: none;
+  font-size: 16px;
+}
+
+.items-container button:hover {
+  color: rgb(249, 208, 157);
+}
+
 /* Footer */
 
 footer {

@@ -22,7 +22,7 @@ const App = () => {
   return (
     <>
       <NavBar token={token} setToken={setToken} cartVisibilty={cartVisibilty} setCartVisibilty={setCartVisibilty} />
-      {cartVisibilty? <ShoppingCart /> : null}
+      {cartVisibilty? <ShoppingCart setCartVisibilty={setCartVisibilty} /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bagels" element={<AllBagels />} />
