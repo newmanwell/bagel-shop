@@ -22,7 +22,7 @@ const NavBar = ({ token, setToken, cartVisibilty, setCartVisibilty }) => {
   return (
     <nav>
       <h1> The Bagel Shop</h1>
-      <div>
+      <div className='header-links'>
         <Link to='/'>Home</Link>
         {
           !token ?
