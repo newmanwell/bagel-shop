@@ -15,6 +15,11 @@ a {
   padding-top: 15px;
 }
 
+.header-links {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 nav a {
   padding-right: 15px;
 }
@@ -23,6 +28,12 @@ nav a+a::before {
   content: '|';
   padding-left: 0px;
   padding-right: 20px;
+}
+
+@media (max-width: 687px){
+  nav a+a::before {
+    content: none;
+  }
 }
 
 a:hover {
