@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 
 
-const NavBar = ({ token, setToken }) => {
+const NavBar = ({ token, setToken, cartVisibilty, setCartVisibilty }) => {
   // const getToken = localStorage.getItem('token');
 
   const signOut = () => {
@@ -9,6 +9,15 @@ const NavBar = ({ token, setToken }) => {
     localStorage.removeItem('username');
     setToken('');
   } 
+
+  const handleCart = (event) => {
+    event.preventDefault();
+    if (!cartVisibilty){
+      setCartVisibilty(true);
+    } else {
+      setCartVisibilty(false);
+    }
+  }
 
   return (
     <nav>
@@ -22,9 +31,11 @@ const NavBar = ({ token, setToken }) => {
               <Link to='/register'>Register</Link>
             </>
           :
-            <Link onClick={signOut}>Logout</Link>
+            <>
+              <Link onClick={signOut}>Logout</Link>
+              <Link onClick={handleCart}>Cart</Link>
+            </>
         }
-        
       </div>
     </nav>
 

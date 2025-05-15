@@ -7,9 +7,11 @@ import NavBar from './Navbar.jsx';
 import GetOneBagel from "./Details.jsx";
 import Login from './Login.jsx';
 import Register from './Register.jsx';
+import ShoppingCart from './ShoppingCart.jsx';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token') || '');
+  const [cartVisibilty, setCartVisibilty] = useState(false);
 
   useEffect(() => {
     if (token) {
@@ -19,7 +21,8 @@ const App = () => {
 
   return (
     <>
-      <NavBar token={token} setToken={setToken} />
+      <NavBar token={token} setToken={setToken} cartVisibilty={cartVisibilty} setCartVisibilty={setCartVisibilty} />
+      {cartVisibilty? <ShoppingCart /> : null}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/bagels" element={<AllBagels />} />
