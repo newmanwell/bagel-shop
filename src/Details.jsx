@@ -31,7 +31,7 @@ const GetOneBagel = () => {
           <img src={ singleBagel.image } alt="A tasty Bagel"/>
           <p>{ singleBagel.description }</p>
           <h3>Price: ${ singleBagel.price / 100 }</h3>
-          {token ? <button onClick={handleClick}>Add to Cart</button> : null}
+          {token ? <button onClick={handleClick} className="add-to-cart">Add to Cart</button> : null}
         </section>
       </div>
     </>
