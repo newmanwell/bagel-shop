@@ -144,7 +144,6 @@ main a {
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 420px;
   background-color: hsla(0, 0%, 0%, .5);
   border: 1px lightgray solid;
   border-radius: 5px;
@@ -152,6 +151,14 @@ main a {
 
 .one-bagel-main h2, .one-bagel-main h3, .one-bagel-main p {
   color: bisque;
+  text-align: center;
+}
+
+.add-to-cart {
+  height: 30px;
+  width: 40%;
+  background-color: bisque;
+  margin-bottom: 33px;
 }
 
 /* Login Page */
