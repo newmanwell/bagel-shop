@@ -15,10 +15,10 @@ const ShoppingCart = ({setCartVisibilty}) => {
         {
           parsedCart.map((cartBagel) => {
             return (
-              <section>
+              <section className="cart-bagel">
                 <h3>{cartBagel.name}</h3>
                 <img src={cartBagel.image} alt="Bagel In Cart"/>
-                <p>{cartBagel.price}</p>
+                <p>${cartBagel.price}</p>
               </section>
             )
           })

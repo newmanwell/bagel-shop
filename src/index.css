@@ -281,6 +281,7 @@ main a {
 	display: flex;
 	flex-direction: column;
 	position: relative;
+  overflow: scroll;
 }
 
 .items-container h2 {
@@ -294,6 +295,16 @@ main a {
 
 .items-container button:hover {
   color: rgb(249, 208, 157);
+}
+
+.cart-bagel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsla(0, 0%, 0%, .5);
+  border: 1px black solid;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 /* Footer */
