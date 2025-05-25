@@ -22,7 +22,7 @@ const GetOneBagel = () => {
     const bagelPrice = singleBagel.price / 100;
     const bagelImage = singleBagel.image;
 
-    setAddToCart([...addToCart, {name: bagelName, price: bagelPrice, image: bagelImage}]);
+    setAddToCart([...addToCart, {name: bagelName, price: bagelPrice, image: bagelImage, quanity: 1}]);
     const stringifiedCart = JSON.stringify(addToCart);
     console.log(stringifiedCart);
 

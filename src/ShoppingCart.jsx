@@ -19,6 +19,7 @@ const ShoppingCart = ({setCartVisibilty}) => {
                 <h3>{cartBagel.name}</h3>
                 <img src={cartBagel.image} alt="Bagel In Cart"/>
                 <p>${cartBagel.price}</p>
+                <p>Quanity: {cartBagel.quanity}</p>
               </section>
             )
           })
