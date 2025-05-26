@@ -23,12 +23,12 @@ const GetOneBagel = () => {
     const bagelImage = singleBagel.image;
 
     setAddToCart([...addToCart, {name: bagelName, price: bagelPrice, image: bagelImage, quanity: 1}]);
-    const stringifiedCart = JSON.stringify(addToCart);
-    console.log(stringifiedCart);
-
-    localStorage.setItem("bagelCart", stringifiedCart);
+    
   }
-  console.log(addToCart);
+
+  const stringifiedCart = JSON.stringify(addToCart);
+
+  localStorage.setItem("bagelCart", stringifiedCart);
 
   return (
     <> 
