@@ -13,6 +13,7 @@ const ShoppingCart = ({setCartVisibilty}) => {
         <h2>Shopping Cart</h2>
         <button onClick={handleClose}>Close Cart</button>
         {
+          parsedCart ? 
           parsedCart.map((cartBagel) => {
             return (
               <section className="cart-bagel">
@@ -21,8 +22,10 @@ const ShoppingCart = ({setCartVisibilty}) => {
                 <p>${cartBagel.price}</p>
                 <p>Quanity: {cartBagel.quanity}</p>
               </section>
-            )
+            ) 
           })
+          :
+          null
         }
       </div>
     </section>
