@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+const addToCart = [];
 
 const GetOneBagel = () => {
   const { id } = useParams();
   const [ singleBagel, setSingleBagel ] = useState({});
-  const [addToCart, setAddToCart] = useState([]);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -22,13 +22,10 @@ const GetOneBagel = () => {
     const bagelPrice = singleBagel.price / 100;
     const bagelImage = singleBagel.image;
 
-    setAddToCart([...addToCart, {name: bagelName, price: bagelPrice, image: bagelImage, quanity: 1}]);
-    
+    addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quanity: 1});
+    const stringifiedCart = JSON.stringify(addToCart);
+    localStorage.setItem("bagelCart", stringifiedCart);
   }
-
-  const stringifiedCart = JSON.stringify(addToCart);
-
-  localStorage.setItem("bagelCart", stringifiedCart);
 
   return (
     <> 
