@@ -149,12 +149,13 @@ main a {
   border-radius: 5px;
 }
 
-.one-bagel-main h2, .one-bagel-main h3, .one-bagel-main p {
+.one-bagel-main h2, .one-bagel-main h3, .one-bagel-main p, .one-bagel-main label {
   color: bisque;
   text-align: center;
 }
 
 .add-to-cart {
+  margin-top: 10px;
   height: 30px;
   width: 40%;
   background-color: bisque;
