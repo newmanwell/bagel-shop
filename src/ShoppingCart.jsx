@@ -20,8 +20,8 @@ const ShoppingCart = ({setCartVisibilty}) => {
                 <h3>{cartBagel.name}</h3>
                 <img src={cartBagel.image} alt="Bagel In Cart"/>
                 <p>${cartBagel.price}</p>
-                <p>Quanity: {cartBagel.quanity}</p>
-                <h3>Subtotal: ${cartBagel.price * Number(cartBagel.quanity)}</h3>
+                <p>Quantity: {cartBagel.quantity}</p>
+                <h3>Subtotal: ${cartBagel.price * Number(cartBagel.quantity)}</h3>
               </section>
             ) 
           })
