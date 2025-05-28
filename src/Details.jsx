@@ -5,9 +5,9 @@ const addToCart = [];
 const GetOneBagel = () => {
   const { id } = useParams();
   const [ singleBagel, setSingleBagel ] = useState({});
-  const [quanity, setQuanity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const token = localStorage.getItem('token');
-  console.log(quanity);
+  console.log(quantity);
 
   useEffect(() => {
     const oneBagelDetails = async() => {
@@ -24,7 +24,7 @@ const GetOneBagel = () => {
     const bagelPrice = singleBagel.price / 100;
     const bagelImage = singleBagel.image;
 
-    addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quanity: quanity});
+    addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quantity: quantity});
     const stringifiedCart = JSON.stringify(addToCart);
     localStorage.setItem("bagelCart", stringifiedCart);
   }
@@ -40,10 +40,10 @@ const GetOneBagel = () => {
           <div>
               <label for="bagel-count">Quanity: </label>
               <input 
-                onChange={(event) => setQuanity(event.target.value)}
+                onChange={(event) => setQuantity(event.target.value)}
                 type="number" 
                 id="bagel-count"
-                name="Quanity"
+                name="Quantity"
                 min="1"
                 max="10" 
               />
