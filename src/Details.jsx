@@ -5,7 +5,9 @@ const addToCart = [];
 const GetOneBagel = () => {
   const { id } = useParams();
   const [ singleBagel, setSingleBagel ] = useState({});
+  const [quanity, setQuanity] = useState(1);
   const token = localStorage.getItem('token');
+  console.log(quanity);
 
   useEffect(() => {
     const oneBagelDetails = async() => {
@@ -22,7 +24,7 @@ const GetOneBagel = () => {
     const bagelPrice = singleBagel.price / 100;
     const bagelImage = singleBagel.image;
 
-    addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quanity: 1});
+    addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quanity: quanity});
     const stringifiedCart = JSON.stringify(addToCart);
     localStorage.setItem("bagelCart", stringifiedCart);
   }
@@ -35,6 +37,17 @@ const GetOneBagel = () => {
           <img src={ singleBagel.image } alt="A tasty Bagel"/>
           <p>{ singleBagel.description }</p>
           <h3>Price: ${ singleBagel.price / 100 }</h3>
+          <div>
+              <label for="bagel-count">Quanity: </label>
+              <input 
+                onChange={(event) => setQuanity(event.target.value)}
+                type="number" 
+                id="bagel-count"
+                name="Quanity"
+                min="1"
+                max="10" 
+              />
+          </div>
           {token ? <button onClick={handleClick} className="add-to-cart">Add to Cart</button> : null}
         </section>
       </div>
