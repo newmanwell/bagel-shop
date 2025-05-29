@@ -13,8 +13,6 @@ const AllBagels = () => {
     }
     getAllBagels();
   }, []);
-  console.log(allBagels);
-  console.log(filteredBagels);
 
   const handleFilter = (event) => {
     const bagelSearch = event.target.value;

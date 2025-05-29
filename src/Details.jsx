@@ -7,7 +7,6 @@ const GetOneBagel = () => {
   const [ singleBagel, setSingleBagel ] = useState({});
   const [quantity, setQuantity] = useState(1);
   const token = localStorage.getItem('token');
-  console.log(quantity);
 
   useEffect(() => {
     const oneBagelDetails = async() => {
