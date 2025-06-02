@@ -4,8 +4,9 @@ const addToCart = [];
 
 const GetOneBagel = () => {
   const { id } = useParams();
-  const [ singleBagel, setSingleBagel ] = useState({});
+  const [singleBagel, setSingleBagel] = useState({});
   const [quantity, setQuantity] = useState(1);
+  const [addedToCart, setAddedToCart] = useState(null);
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -26,6 +27,7 @@ const GetOneBagel = () => {
     addToCart.push({name: bagelName, price: bagelPrice, image: bagelImage, quantity: quantity});
     const stringifiedCart = JSON.stringify(addToCart);
     localStorage.setItem("bagelCart", stringifiedCart);
+    setAddedToCart('Added to Cart');
   }
 
   return (
@@ -48,6 +50,7 @@ const GetOneBagel = () => {
               />
           </div>
           {token ? <button onClick={handleClick} className="add-to-cart">Add to Cart</button> : null}
+          <p>{addedToCart}</p>
         </section>
       </div>
     </>
