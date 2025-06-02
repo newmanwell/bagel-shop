@@ -16,11 +16,23 @@ const ShoppingCart = ({setCartVisibilty}) => {
     localStorage.setItem("bagelCart", JSON.stringify(newBagelArray));
   }
 
+  let currentTotal = 0;
+  const updateTotal = () => {
+    
+    for (let i = 0; i < parsedCart.length; i++) {
+      currentTotal = currentTotal + (parsedCart[i].price * parsedCart[i].quantity);
+    }
+
+    console.log(currentTotal);
+  }
+  updateTotal();
+
   return (
     <section className="cart-container">
       <div className="items-container">
         <h2>Shopping Cart</h2>
         <button onClick={handleClose}>Close Cart</button>
+        <h3>Order Total: ${currentTotal}</h3>
         {
           parsedCart ? 
           parsedCart.map((cartBagel) => {
