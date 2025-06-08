@@ -3,6 +3,7 @@ import { useState } from "react";
 const ShoppingCart = ({setCartVisibilty}) => {
   const getCart = localStorage.getItem("bagelCart");
   const [parsedCart, setParsedCart] = useState(JSON.parse(getCart));
+  const [checkedOut, setCheckedOut] = useState(null);
   console.log(parsedCart);
 
   const handleClose = () => {
@@ -12,8 +13,8 @@ const ShoppingCart = ({setCartVisibilty}) => {
   const handleRemove = (bagelName) => {
     const indexToRemove = parsedCart.findIndex(passedInName => passedInName.name === bagelName);
     const newBagelArray = [...parsedCart.slice(0, indexToRemove), ...parsedCart.slice(indexToRemove + 1)];
-    setParsedCart(newBagelArray);
     localStorage.setItem("bagelCart", JSON.stringify(newBagelArray));
+    setParsedCart(newBagelArray);
   }
 
   
@@ -26,12 +27,19 @@ const ShoppingCart = ({setCartVisibilty}) => {
     return currentTotal;
   }
 
+  const handleCheckout = () => {
+    setCheckedOut("Thank You For Your Order");
+    setParsedCart([]);
+  }
+
   return (
     <section className="cart-container">
       <div className="items-container">
         <h2>Shopping Cart</h2>
         <button onClick={handleClose}>Close Cart</button>
         <h3>Order Total: ${updateTotal()}</h3>
+        <button onClick={handleCheckout}>Checkout</button>
+        <h3>{checkedOut}</h3>
         {
           parsedCart ? 
           parsedCart.map((cartBagel) => {
