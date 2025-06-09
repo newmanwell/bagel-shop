@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 const ShoppingCart = ({setCartVisibilty}) => {
   const getCart = localStorage.getItem("bagelCart");
@@ -57,6 +58,7 @@ const ShoppingCart = ({setCartVisibilty}) => {
           :
           null
         }
+        <h4>See <Link to={`/bagels`} onClick={handleClose}>Our Bagels</Link> to add more</h4>
       </div>
     </section>
   )
