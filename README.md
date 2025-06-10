@@ -6,3 +6,6 @@
 * Frontend Vite + React
 * Backend Express, NodeJS, PostgreSQL
 
+## New Features (happy to have built)
+* Search form for bagels by name
+* Shopping cart at adds, deletes and updates sub total and total price
