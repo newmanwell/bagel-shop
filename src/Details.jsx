@@ -10,13 +10,17 @@ const GetOneBagel = () => {
   const token = localStorage.getItem('token');
 
   useEffect(() => {
-    const oneBagelDetails = async() => {
-      const response = await fetch(`/api/bagels/${id}`);
-      const bagelArray = await response.json();
-      const oneBagel = bagelArray[0];
-      setSingleBagel(oneBagel);
+    try {
+      const oneBagelDetails = async() => {
+        const response = await fetch(`/api/bagels/${id}`);
+        const bagelArray = await response.json();
+        const oneBagel = bagelArray[0];
+        setSingleBagel(oneBagel);
+      }
+      oneBagelDetails();
+    } catch(err) {
+      console.log(err);
     }
-    oneBagelDetails();
   }, []);  
 
   const handleClick = () => {
