@@ -6,12 +6,16 @@ const AllBagels = () => {
   const [filteredBagels, setFilteredBagels] = useState([]);
 
   useEffect(() => {
-    const getAllBagels = async() => {
-      const response = await fetch('/api/bagels');
-      const allTheBagels = await response.json();
-      setAllBagels(allTheBagels);
+    try {
+      const getAllBagels = async() => {
+        const response = await fetch('/api/bagels');
+        const allTheBagels = await response.json();
+        setAllBagels(allTheBagels);
+      }
+      getAllBagels();
+      } catch (err) {
+          console.log(err);
     }
-    getAllBagels();
   }, []);
 
   const handleFilter = (event) => {
