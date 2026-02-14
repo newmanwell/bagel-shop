@@ -30,7 +30,7 @@ app.get('/api/bagels/:bagel_id', async(req, res, next) => {
     const bagelDetails = await fetchBagelDetails(bagel_id);
     res.send(bagelDetails);
   } catch(err) {
-    next(err);
+    next(err);ˆ
   }
 });
 

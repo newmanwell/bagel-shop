@@ -48,13 +48,13 @@ const syncAndSeed = async() => {
   console.log('TABLES CREATED');
 
   console.log('CREATING BAGELS');
-  await createBagel('Plain', 'An plain bagel, nothing special', 'https://images.squarespace-cdn.com/content/v1/5f0f608ea6738737b62790c1/1595773894105-58D723XLC7M6SGMCS5ML/Studio+Session-024.jpg', 100);
-  await createBagel('Everything', 'Everything on the kitchen counter for this one', 'https://chefsavvy.com/wp-content/uploads/homemade-everything-bagels1.jpg', 300);
-  await createBagel('Rainbow', 'Taste the rainbow!, its just a plain bagel with color', 'https://www.tastingtable.com/img/gallery/rainbow-bagel-secrets-viral-food-unicorn-trend/image-import.jpg', 400);
-  await createBagel('Salt', 'Salty like the beach', 'https://www.frontrangefed.com/wp-content/uploads/2023/07/Salt-Bages-Featured-480x270.jpg', 200);
-  await createBagel('Egg', 'Do not blame us for the price, eggs are pricey', 'https://static1.squarespace.com/static/5eac4cadbad0a7612d8c693a/t/60329318ce4285406cf12f3c/1613927204984/IMG_0225+2.jpg?format=1500w', 1000);
-  await createBagel('Pumpernickel', 'Not a chocolate bagel', 'https://bagelsncreamnj.com/wp-content/uploads/2019/12/pumpernickel-rye-bagel-scaled.jpg', 200);
-  await createBagel('Hot Cheetos', 'Oh she spicy', 'https://assets.westchestermagazine.com/wp-content/uploads/2023/10/flaming-hot-bagel.jpg', 700);
+  await createBagel('Plain', 'An plain bagel, nothing special', '/images/bagel_pictures/plain.webp', 100);
+  await createBagel('Everything', 'Everything on the kitchen counter for this one', '/images/bagel_pictures/everything.jpg', 300);
+  await createBagel('Rainbow', 'Taste the rainbow!, its just a plain bagel with color', '/images/bagel_pictures/rainbow.jpg', 400);
+  await createBagel('Salt', 'Salty like the beach', '/images/bagel_pictures/salt.jpg', 200);
+  await createBagel('Egg', 'Do not blame us for the price, eggs are pricey', '/images/bagel_pictures/egg.webp', 1000);
+  await createBagel('Pumpernickel', 'Not a chocolate bagel', '/images/bagel_pictures/pumpernickel.webp', 200);
+  await createBagel('Hot Cheetos', 'Oh she spicy', '/images/bagel_pictures/flaming-hot-bagel.jpg', 700);
   console.log(' BAGELS CREATED');
 
   console.log('CREATING USERS');
