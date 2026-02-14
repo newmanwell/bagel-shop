@@ -8,4 +8,4 @@
 
 ## New Features (happy to have built)
 * Search form for bagels by name
-* Shopping cart that adds, deletes and updates sub total and total price
+* Shopping cart that adds, deletes and updates sub total and total price!
